@@ -3,6 +3,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OdeToFood.Services;
 
 namespace OdeToFood
 {
@@ -21,16 +22,18 @@ namespace OdeToFood
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(provider => this.Configuration);
+            services.AddSingleton<IGreeter, Greeter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IGreeter greeter)
         {
             app.UseIISPlatformHandler();
 
             app.Run(async (context) =>
             {
-                var message = this.Configuration["greetingMessage"];
+                var message = greeter.GetGreeting();
                 await context.Response.WriteAsync(message);
             });
         }
