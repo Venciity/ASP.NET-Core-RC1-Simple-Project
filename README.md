@@ -3,7 +3,15 @@ The objectives of this project are to show you how to use ASP.NET Core RC1.
 I follow the steps to write this project from [Plularsight course](https://www.pluralsight.com/courses/aspdotnet-core-1-0-fundamentals)
 
 ## 1.Build your first ASP.NET Core application
-First you need to install any version of Visual Studio. You can use Microsoft DreamSpark if you're student and your university give you that chance. If you aren't a student or don't have a Microsoft DreamSpark account you can download free version of Visual Studio (Visual Studio Community 2015) from [here](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx). Also you need to install the ASP.NET Core from here(https://docs.asp.net/en/latest/getting-started.html). Just follow the installation steps and you'll get it.
+### 1.1 Setup
+* First you need to install any version of Visual Studio. You can use Microsoft DreamSpark if you're student and your university give you that chance. If you aren't a student or don't have a Microsoft DreamSpark account you can download free version of Visual Studio (Visual Studio Community 2015) from [here](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx). 
+* Also you need to install the ASP.NET Core from here(https://docs.asp.net/en/latest/getting-started.html). Just follow the installation steps and you'll get it.
+
+### 1.2 Create a new project
+* You can create a new project by going to file :arrow_right: new project :arrow_right: Visual C# :arrow_right: ASP.NET Web Application. Give it a name, select the location of project and then click "OK". At the top they're ASP.NET 4.5.2 Templates, after that they're ASP.NET 5 Templates. You can select empty project from the ASP.NET 5 Templates, maybe remove the tick "Host in cloud" and
+click "OK".
+
+* We can start the project without debugging with shortcut ctrl + f5. By default when we create empty project and then we start it, we see the text "Hello world!".
 
 ## 2.Startup and middleware
 ### 2.1 How middleware works
