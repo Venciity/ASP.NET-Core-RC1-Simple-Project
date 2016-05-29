@@ -4,7 +4,7 @@ I follow the steps to write this project from [Plularsight course](https://www.p
 
 ## 1.Build your first ASP.NET Core application
 ### 1.1 Setup
-* First you need to install any version of Visual Studio. You can use Microsoft DreamSpark if you're student and your university give you that chance. If you aren't a student or don't have a Microsoft DreamSpark account you can download free version of Visual Studio (Visual Studio Community 2015) from [here](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx). 
+* First you need to install any version of Visual Studio. You can use Microsoft DreamSpark if you're student and your university give you that chance. If you aren't a student or don't have a Microsoft DreamSpark account you can download free version of Visual Studio (Visual Studio Community 2015) from [here](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx)
 * Also you need to install the ASP.NET Core from here(https://docs.asp.net/en/latest/getting-started.html). Just follow the installation steps and you'll get it.
 
 ### 1.2 Create a new project
@@ -12,6 +12,16 @@ I follow the steps to write this project from [Plularsight course](https://www.p
 click "OK".
 
 * We can start the project without debugging with shortcut ctrl + f5. By default when we create empty project and then we start it, we see the text "Hello world!".
+
+### 1.3 The project layout
+* The "projects" setting in global.json tells to ASP.NET where to look for my source code and what folders contain my projects. They're two possible folders: src for source and a test folder. If my projects aren't in one of these two folders, the code won't be available to build.
+
+* When we open the project folder in file explorer, then doubleclick on src folder and then open the folder with the project name, we will view the source code files for the application.
+
+* In this version of ASP.NET, the file system determines what is in my project. If we add a new file in the source code folder, the file will be added to the project. Also if we delete a file, the file is removed from the project.
+That's a little bit different than previous versions of ASP.NET where a project files (a .csproj file) that contained a manifest of everything that is in the project. Here the file system is the project system and that's important to understand in this version of ASP.NET.
+
+* ASP.NET will compile the application when we make file changes, add a file or delete a file. ASP.NET monitor the file system and recompile the application on file changes. We don't need explicitly build the application in Visual Studio.
 
 ## 2.Startup and middleware
 ### 2.1 How middleware works
