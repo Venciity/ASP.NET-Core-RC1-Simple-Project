@@ -1,4 +1,4 @@
-# ASP.NET-Core-RC1-Simple-Project
+# ASP.NET Core RC1 simple project
 The objectives of this project are to show you how to use ASP.NET Core RC1.
 I follow the steps to write this project from the [Plularsight course](https://www.pluralsight.com/courses/aspdotnet-core-1-0-fundamentals)
 
@@ -22,6 +22,32 @@ click "OK".
 That's a little bit different than previous versions of ASP.NET where a project file (a .csproj file) that contained a manifest of everything that is in the project. Here the file system is the project system and that's important to understand in this version of ASP.NET.
 
 * ASP.NET will compile the application when we make file changes, add a file or delete a file. ASP.NET monitor the file system and recompile the application on file changes. We don't need explicitly build the application in Visual Studio.
+
+### 1.4 The project.json file
+* The project.json file is a file using JSON (Javascript Object Notation) to store configuration information. This file is a heart of a .NET application.
+
+* If my application is going to do any useful work, I will go to install some libraries and frameworks to do that work. Work like render a complicated HTML or talk to the database.
+
+* All dependencies are managed via the NuGet package manager. NuGet has been around the .NET space for a few years. Now the primary way to manage dependencies is to use libraries and frameworks that are wrapped as NuGet packages.
+
+* When we need to add a new dependency, like an ASP.NET MVC framework, I can type into the project.json file. I have an intellisense about the packages(the package name and version numbers). Or I can use the UI. I can right-click on References and then click "manage NuGet packages". When we install the package from the UI, that package will be stored in the project.json file.
+
+* The "frameworks" section tells ASP.NET which of the .NET frameworks my application can use. <br /> <br />
+Dnx451 is the full .NET framework. This is the .NET framework that is installed when I install Visual Studio. It's the .NET Framework that has been around for 15 years, and it includes frameworks that do everything from web programming to desktop programming. So frameworks like Windows Presentation Foundation and Windows Communication Foundation. It's a huge framework, and it's a framework that only works on Windows. <br /> <br />
+Dnxcore50, this is the .NET Core framework. .NET Core is a cross-platform framework so it can work on various platforms, not just Windows but also OS X and Linux. This framework has far fewer features than the full dnx451 framework. But it does have all the features that we need for ASP.NET web development. So, we expect the most ASP.NET applications will only target .NET Core in a few years.
+
+* When we expand the References node in the project. We can see the frameworks which our application using.
+When we expand some of this nodes. We can also see the NuGet package that we referencing. We can expand the NuGet packages too and then we can see that the nuget packages have dependacies that are also NuGet packages.
+
+* The folder "wwwrooot" is the web root from hosting perspective, this is the root of the website. If we have files that we want to serve over HTTP, static files that are on the file system, like image files, stylesheets, and Javascript files, we need to place this files into this web root folder to make them available.
+
+* If you're worked with previous versions of ASP.NET, you probably expect to see a **global.asax** file, which was one place where I could write code to execute during startup of a web application. And you'd also probably expect to see a **web.config** file containing all the configuration parameters my application needed to execute. **Those files are gone**. Instead, configuration and startup code are loaded from a Startup.cs file. Inside of this file, there is a Startup class. This is a class that ASP.NET will look for by convention, and there we configure our application and configuration sources.
+
+* The Configure method in the Startup class we build our HTTP processing pipeline. This defines how my application responds to requests. Configure method is a place to set up the inversion of control container for the application.
+
+* The ConfigureServercies method in Startup class is a place to configure components for the application.
+
+* ASP.NET uses dependency injection everywhere to give us a lot of flexability on how an application behaves. Essentially with dependency injection, I can have my code ask for dependencies instead of instantiating dependacies directly and being tied to some specific component.
 
 ## 2.Startup and middleware
 ### 2.1 How middleware works
