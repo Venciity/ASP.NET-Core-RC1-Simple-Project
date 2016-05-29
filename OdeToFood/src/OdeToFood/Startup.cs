@@ -31,6 +31,8 @@ namespace OdeToFood
         {
             app.UseIISPlatformHandler();
 
+            app.UseRuntimeInfoPage("/info");
+
             app.Run(async (context) =>
             {
                 var message = greeter.GetGreeting();
