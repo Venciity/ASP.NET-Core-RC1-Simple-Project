@@ -1,4 +1,4 @@
-# ASP.NET Core RC1 simple project
+# ASP.NET Core RC1 simple project and notes
 The objectives of this project are to show you how to use ASP.NET Core RC1.
 I follow the steps to write this project from the [Plularsight course](https://www.pluralsight.com/courses/aspdotnet-core-1-0-fundamentals)
 
