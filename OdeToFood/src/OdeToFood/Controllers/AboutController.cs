@@ -3,16 +3,16 @@
 namespace OdeToFood.Controllers
 {
     [Route("company/[controller]/[action]")]
-    public class AboutController
+    public class AboutController : Controller
     {
-        public string Phone()
+        public IActionResult Phone()
         {
-            return "+359 883444444";
+            return this.Content("+359 883444444");
         }
 
-        public string Country()
+        public IActionResult Country()
         {
-            return "Bulgaria";
+            return this.Content("Bulgaria");
         }
     }
 }
