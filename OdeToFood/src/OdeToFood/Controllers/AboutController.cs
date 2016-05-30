@@ -2,7 +2,7 @@
 
 namespace OdeToFood.Controllers
 {
-    [Route("about")]
+    [Route("[controller]")]
     public class AboutController
     {
         [Route("")]
@@ -11,7 +11,7 @@ namespace OdeToFood.Controllers
             return "+359 883444444";
         }
 
-        [Route("country")]
+        [Route("[action]")]
         public string Country()
         {
             return "Bulgaria";
