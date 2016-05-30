@@ -38,9 +38,10 @@ namespace OdeToFood
 
             app.UseRuntimeInfoPage("/info");
 
+            app.UseFileServer();
+
             app.Run(async (context) =>
             {
-                throw new System.Exception("This is to check if UseDeveloperExceptionPage() middleware works correctly.");
                 var message = greeter.GetGreeting();
                 await context.Response.WriteAsync(message);
             });
