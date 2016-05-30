@@ -22,5 +22,16 @@ namespace OdeToFood.Controllers
             model.CurrentGreeting = this.greeter.GetGreeting();
             return this.View(model);
         }
+
+        public IActionResult Details(int id)
+        {
+            var model = this.restaurantData.Get(id);
+            if (model == null)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            return this.View(model);
+        }
     }
 }
