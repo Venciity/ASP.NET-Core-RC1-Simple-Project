@@ -31,7 +31,7 @@ namespace OdeToFood.Controllers
         }
 
         [HttpPost]
-        public ViewResult Create(RestaurantEditViewModel model)
+        public IActionResult Create(RestaurantEditViewModel model)
         {
             var restaurant = new Restaurant();
             restaurant.Name = model.Name;
@@ -39,7 +39,7 @@ namespace OdeToFood.Controllers
 
             this.restaurantData.Add(restaurant);
 
-            return this.View("Details", restaurant);
+            return this.RedirectToAction("Details", new { id = restaurant.Id });
         }
 
         public IActionResult Details(int id)
