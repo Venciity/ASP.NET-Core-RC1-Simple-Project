@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using OdeToFood.Entities;
 using System.Linq;
 
@@ -27,7 +26,7 @@ namespace OdeToFood.Services
 
         public IEnumerable<Restaurant> GetAll()
         {
-            return this.context.Restaurants;
+            return this.context.Restaurants.ToList();
         }
     }
 }
