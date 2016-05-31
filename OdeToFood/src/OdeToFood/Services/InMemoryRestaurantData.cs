@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using OdeToFood.Entities;
 using System.Linq;
 
@@ -7,9 +6,9 @@ namespace OdeToFood.Services
 {
     public class InMemoryRestaurantData : IRestaurantData
     {
-        public InMemoryRestaurantData()
+        static InMemoryRestaurantData()
         {
-            this.restaurants = new List<Restaurant>
+            restaurants = new List<Restaurant>
             {
                 new Restaurant { Id = 1, Name = "Marios" },
                 new Restaurant { Id = 2, Name = "What we eat" },
@@ -17,16 +16,22 @@ namespace OdeToFood.Services
             };
         }
 
-        private List<Restaurant> restaurants;
+        private static List<Restaurant> restaurants;
+
+        public void Add(Restaurant restaurant)
+        {
+            restaurant.Id = restaurants.Max(r => r.Id) + 1;
+            restaurants.Add(restaurant);
+        }
 
         public IEnumerable<Restaurant> GetAll()
         {
-            return this.restaurants;
+            return restaurants;
         }
 
         public Restaurant Get(int id)
         {
-            return this.restaurants.FirstOrDefault(r => r.Id == id);
+            return restaurants.FirstOrDefault(r => r.Id == id);
         }
     }
 }
