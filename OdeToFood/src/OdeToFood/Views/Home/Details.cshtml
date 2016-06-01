@@ -1,16 +1,11 @@
 ﻿@model OdeToFood.Entities.Restaurant
+@{ 
+    ViewBag.Title = Model.Name;
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>@Model.Name</title>
-</head>
-<body>
-    <h1>Restaurant name: @Model.Name</h1>
-    <div>Restaurant id: @Model.Id</div>
-    <div>Restaurant cuisine: @Model.Cuisine</div>
-    <div>
-        @Html.ActionLink("Home", "index")
-    </div>
-</body>
-</html>
+<h1>Restaurant name: @Model.Name</h1>
+<div>Restaurant id: @Model.Id</div>
+<div>Restaurant cuisine: @Model.Cuisine</div>
+<div>
+    @Html.ActionLink("Home", "index")
+</div>
