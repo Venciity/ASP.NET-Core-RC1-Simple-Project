@@ -1,24 +1,23 @@
 ﻿@model OdeToFood.ViewModels.HomePageViewModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/views/shared/_layout.cshtml";
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome! ☺</h1>
-    <h2>@Model.CurrentGreeting</h2>
-    <h3>Restaurants list:</h3>
-    <table>
-        @foreach (var restaurant in this.Model.Restaurants)
-        {
-            <tr>
-                <td>@restaurant.Id.</td>
-                <td>
-                    @Html.ActionLink(restaurant.Name, "Details", new { id = restaurant.Id })
-                </td>
-            </tr>
-        }
-    </table>
-</body>
-</html>
+<h1>Welcome! ☺</h1>
+<h3>Restaurants list:</h3>
+<table>
+    @foreach (var restaurant in this.Model.Restaurants)
+    {
+        <tr>
+            <td>@restaurant.Id.</td>
+            <td>
+                @Html.ActionLink(restaurant.Name, "Details", new { id = restaurant.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+@section footer {
+    <div>@Model.CurrentGreeting</div>
+}
