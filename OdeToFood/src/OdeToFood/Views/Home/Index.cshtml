@@ -5,20 +5,14 @@
 
 <h1>Welcome! ☺</h1>
 <h3>Restaurants list:</h3>
-<table>
-    @foreach (var restaurant in this.Model.Restaurants)
-    {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>
-                <a asp-action="Details" asp-route-id="@restaurant.Id">Details</a>
-                <a asp-action="Edit" asp-route-id="@restaurant.Id">Edit</a>
-            </td>
-        </tr>
-    }
-</table>
+@foreach (var restaurant in this.Model.Restaurants)
+{
+    @Html.Partial("_RestaurantSummary", restaurant)
+}
 
-<a asp-action="Create">Create</a>
+<div>
+    <a asp-action="Create">Create</a>
+</div>
 
 @section footer {
     <div>@Model.CurrentGreeting</div>
