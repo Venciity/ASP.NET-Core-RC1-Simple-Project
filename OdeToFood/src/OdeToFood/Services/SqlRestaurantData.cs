@@ -13,10 +13,14 @@ namespace OdeToFood.Services
 
         private OdeToFoodDbContext context;
 
+        public int Commit()
+        {
+            return this.context.SaveChanges();
+        }
+
         public void Add(Restaurant restaurant)
         {
             this.context.Add(restaurant);
-            this.context.SaveChanges();
         }
 
         public Restaurant Get(int id)

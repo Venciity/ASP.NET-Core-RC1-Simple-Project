@@ -18,6 +18,11 @@ namespace OdeToFood.Services
 
         private static List<Restaurant> restaurants;
 
+        public int Commit()
+        {
+            return 0;
+        }
+
         public void Add(Restaurant restaurant)
         {
             restaurant.Id = restaurants.Max(r => r.Id) + 1;

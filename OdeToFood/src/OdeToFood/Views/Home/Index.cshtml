@@ -9,9 +9,10 @@
     @foreach (var restaurant in this.Model.Restaurants)
     {
         <tr>
-            <td>@restaurant.Id.</td>
+            <td>@restaurant.Name</td>
             <td>
-                <a asp-action="Details" asp-route-id="@restaurant.Id">@restaurant.Name</a>
+                <a asp-action="Details" asp-route-id="@restaurant.Id">Details</a>
+                <a asp-action="Edit" asp-route-id="@restaurant.Id">Edit</a>
             </td>
         </tr>
     }
