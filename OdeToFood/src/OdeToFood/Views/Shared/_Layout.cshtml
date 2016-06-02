@@ -4,15 +4,24 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/styles.css" rel="stylesheet" />
 </head>
 <body>
-    @Html.Partial("_LoginPartialView")
-    <div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">OdeToFood</a>
+            </div>
+            @Html.Partial("_LoginPartialView")
+        </div>
+    </nav>
+    <div class="container">
         @RenderBody()
+        <footer>
+            @RenderSection("footer", required: false)
+            @Component.Invoke("Greeting")
+        </footer>
     </div>
-    <footer>
-        @RenderSection("footer", required: false)
-        @Component.Invoke("Greeting")
-    </footer>
 </body>
 </html>

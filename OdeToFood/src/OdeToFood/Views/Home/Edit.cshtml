@@ -3,19 +3,25 @@
     ViewBag.Title = $"Edit {Model.Name}";
 }
 
-<h1>Edit @Model.Name</h1>
-<form asp-action="Edit" method="post">
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name"/>
-        <span asp-validation-for="Name"></span>
-    </div>
-    <div>
-        <label asp-for="Cuisine"></label>
-        <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"></select>
-        <span asp-validation-for="Cuisine"></span>
-    </div>
-    <div>
-        <input type="submit" value="Save" />
-    </div>
+<form class="form-horizontal edit-form" asp-action="Edit" method="post">
+    <fieldset>
+        <legend>Edit @Model.Name</legend>
+        <div class="form-group">
+            <label asp-for="Name" class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+                <input asp-for="Name" class="form-control">
+            </div>
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cuisine" class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+                <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))" class="form-control"></select> 
+            </div>
+            <span asp-validation-for="Cuisine"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" class="btn btn-default pull-right"/>
+        </div>
+    </fieldset>
 </form>

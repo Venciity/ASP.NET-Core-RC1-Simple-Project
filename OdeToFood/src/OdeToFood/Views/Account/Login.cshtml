@@ -3,23 +3,32 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
-<form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
-    <div asp-validation-summary="ValidationSummary.ModelOnly"></div>
-    <div>
-        <label asp-for="Username"></label>
-        <input asp-for="Username"/>
-        <span asp-validation-for="Username"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="RememberMe"></label>
-        <input asp-for="RememberMe" />
-        <span asp-validation-for="RememberMe"></span>
-    </div>
-    <input type="submit" value="Login" />
+<form method="post" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal login-form">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-group">
+            <label asp-for="Username" class="col-lg-5 control-label"></label>
+            <div class="col-lg-7">
+                <input asp-for="Username" class="form-control">
+            </div>
+            <span asp-validation-for="Username"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="col-lg-5 control-label"></label>
+            <div class="col-lg-7">
+                <input asp-for="Password" class="form-control">
+            </div>
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RememberMe" class="col-lg-5 control-label"></label>
+            <div class="col-lg-2">
+                <input asp-for="RememberMe" class="form-control">
+            </div>
+            <span asp-validation-for="RememberMe"></span>
+        </div>
+        <div>
+            <input type="submit" value="Login" class="btn btn-default pull-right" />
+        </div>
+    </fieldset>
 </form>

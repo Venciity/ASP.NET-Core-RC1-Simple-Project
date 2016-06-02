@@ -1,11 +1,11 @@
-﻿@model OdeToFood.Entities.Restaurant
+﻿@model Restaurant
 @{ 
     ViewBag.Title = Model.Name;
 }
 
-<h1>Restaurant name: @Model.Name</h1>
-<div>Restaurant id: @Model.Id</div>
-<div>Restaurant cuisine: @Model.Cuisine</div>
-<div>
-    @Html.ActionLink("Home", "index")
-</div>
+<section class="panel panel-default">
+    <div class="panel-heading">@Model.Name</div>
+    <div class="panel-body">
+        Cusine: @Model.Cuisine
+    </div>
+</section>

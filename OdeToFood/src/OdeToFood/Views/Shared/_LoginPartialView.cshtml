@@ -1,15 +1,15 @@
 ﻿@using System.Security.Claims
-<div>
+<div class="navbar navbar-nav navbar-right">
     @if (User.IsSignedIn())
     {
-        <div>@User.GetUserName()</div>
-        <form method="post" asp-controller="Account" asp-action="Logout">
-            <input type="submit" value="Logout" />
+        <form method="post" asp-controller="Account" asp-action="Logout" class="navbar-form">
+            @User.GetUserName()
+            <input type="submit" value="Logout" class="btn btn-primary btn-xs"/>
         </form>
     }
     else
     {
-        <a asp-controller="Account" asp-action="Login">Login</a>
-        <a asp-controller="Account" asp-action="Register">Register</a>
+        <a class="btn btn-default btn-xs navbar-btn" asp-controller="Account" asp-action="Login">Login</a>
+        <a class="btn btn-default btn-xs navbar-btn" asp-controller="Account" asp-action="Register">Register</a>
     }
 </div>
